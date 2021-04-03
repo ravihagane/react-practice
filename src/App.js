@@ -20,6 +20,12 @@ export default class App extends Component {
         age: 24,
       },
     ],
+    Showpersons: false,
+  };
+
+  togglePersonHandler = () => {
+    const person = this.Showpersons;
+    this.setState({ Showpersons: !person });
   };
 
   switchNameHandler = (newName) => {
@@ -63,11 +69,17 @@ export default class App extends Component {
     return (
       <div>
         <h1>My name is Ravi reddy </h1>
-        <button onClick={() => this.switchNameHandler("Hagane")}>Switch</button>
-        <UserInput />
-        <UserOutput name="Ravi reddy" job="web developer" />
-        <UserOutput name="Hagane" job="Youtuber" />
-        <UserOutput name="Kaala bhairav" job="Yogi" />
+        <button onClick={() => this.togglePersonHandler()}>
+          Toggle persons
+        </button>
+        {this.Showpersons ? (
+          <div>
+            <UserInput />
+            <UserOutput name="Ravi reddy" job="web developer" />
+            <UserOutput name="Hagane" job="Youtuber" />
+            <UserOutput name="Kaala bhairav" job="Yogi" />
+          </div>
+        ) : null}
       </div>
     );
   }
