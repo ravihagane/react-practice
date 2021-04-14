@@ -7,7 +7,6 @@ function person(props) {
         I am a {props.name}!, I am {props.age} years old.
       </p>
       <p>{props.children}</p>
-      <input type="text" onChange={props.input} value={props.name}></input>
     </div>
   );
 }
